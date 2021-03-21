@@ -1,0 +1,13 @@
+#word, 
+select,
+button {
+  font-size: 12px;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo;
+  border: 1px solid #B9C9CE;
+  border-radius: 5px;
+  padding: 4px 0.8em;
+}
+
+select {
+  padding: 3px;
+}
