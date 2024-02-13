@@ -3,11 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <title>hiQualityImg</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f2f2f2;
+    }
+
+    .main {
+      text-align: center;
+    }
+
+    #word,
+    select,
+    button {
+      font-size: 18px;
+      border: 3px solid #B9C9CE;
+      border-radius: 15px;
+      padding: 10px 15px;
+      margin: 10px;
+      width: 80%;
+      max-width: 300px;
+      box-sizing: border-box;
+      background-color: white;
+    }
+
+    select {
+      padding: 8px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
+  <script>
+    'use strict';
+
+    {
+      document.querySelector('button').addEventListener('click', () => {
+        exe();
+      });
+      document.body.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          exe();
+        }
+      });
+
+      function exe() {
+        const li = document.createElement('li');
+        const text = document.querySelector('input')
+        const word = text.value;
+        const qua = document.querySelector('select');
+        const l = `https://www.google.com/search?as_st=y&tbm=isch&hl=ja&as_q=${word}&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:${qua.value}`;
+
+        console.log(l);
+        window.open(l, '_blank');
+        text.focus();
+      }
+    }
+  </script>
   <div class="main">
-    <p><input type="text" id="word" placeholder="search"></p>
+    <p><input type="text" id="word" placeholder="検索"></p>
     <select id="qua">
       <option value="xga">1024x768以上</option>
       <option value="2mp">200万画素以上</option>
@@ -21,7 +92,5 @@
     </select>
     <button id="btn">検索</button>
   </div>
-  
-  <script src="js/main.js"></script>
 </body>
 </html>
